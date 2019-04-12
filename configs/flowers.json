@@ -1,0 +1,5 @@
+{
+    "dataset_name" : "flowers",
+    "experiment_name" : "flower_split_1", 
+    "splits" : {"train": 2500, "eval": 670, "test": 500}
+}
