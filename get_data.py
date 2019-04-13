@@ -35,9 +35,7 @@ def input_fn(filepaths, class_names_to_ids, batch_size, num_images, mode="traini
     dataset = dataset.prefetch(2 * batch_size)
     return dataset
 
-def categorical_inputpipeline(config_name, batch_size, split, mode):
-    with open(os.path.join(root_dir, "configs", config_name+'.json')) as file:
-        config = json.load(file)
+def inputpipeline_from_categorical_directories(config, batch_size, split, mode):
     dataset_name = config['dataset_name']
     experiment_name = config['experiment_name']
     experiment_dir = os.path.join(root_dir, 'datasets', dataset_name, experiment_name, split)
@@ -51,3 +49,16 @@ def categorical_inputpipeline(config_name, batch_size, split, mode):
 def episodic_inputpipeline(config_name, n_way, n_shot, n_query):
     with open(os.path.join(root_dir, "configs", config_name+'.json'))
     train_split_path = os.path.join(root_dir, )
+
+
+def get_data(config_name, batch_size, split, mode):
+    with open(os.path.join(root_dir, "configs", config_name+'.json')) as file:
+        config = json.load(file)
+
+    if config['dataset_name'] == 'flowers':
+        x, y = inputpipeline_from_categorical_directories(config, batch_size, split, mode)
+        return x, y
+    elif config['dataset_name'] == 'mnist':
+        print("Not implemented yet")
+    else:
+        print("That config_name is not matched with any configuration.")

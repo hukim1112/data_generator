@@ -6,7 +6,7 @@ import json
 import urllib, tarfile
 _DATA_URL = 'http://download.tensorflow.org/example_images/flower_photos.tgz'
 
-def original_dataset_download_and_uncompress_tarball(dataset_dir, tarball_url=_DATA_URL):
+def dataset_download(dataset_dir, tarball_url=_DATA_URL):
     """Downloads the `tarball_url` and uncompresses it locally.
 
     Args:
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         config = json.load(file)
 
     dataset_dir = os.path.join('datasets', config['dataset_name'])
-    original_dataset_download_and_uncompress_tarball(dataset_dir)
+    dataset_download(dataset_dir)
     origin_dir = os.path.join(dataset_dir, 'flower_photos')
     experiment_dir = os.path.join(dataset_dir, config['experiment_name'])
     dataset_util.make_splits_from_original_dataset(origin_dir, experiment_dir, config['splits'])
