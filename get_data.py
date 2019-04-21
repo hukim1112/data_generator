@@ -31,7 +31,7 @@ def categorical_inputpipeline(dataset):
 #     train_split_path = os.path.join(root_dir, )
 
 
-def data_pipeline(config_name, batch_size, split):
+def data_pipeline(config_name, batch_size, split, mode=None):
     ''' 
     Get inputpipeline with a dataset name. 
     If you want to know the ways to build each dataset by tf.data.dataset API, Check the 'input_fn' folder.

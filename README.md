@@ -27,4 +27,7 @@ images, labels = get_data.data_pipeline("mnist", 128, 'train') #(dataset name, b
 
 ```
 
-
+##### 5. Reference of tf.data
+1) https://www.tensorflow.org/api_docs/python/tf/data
+2) https://www.tensorflow.org/guide/datasets
+3) https://medium.com/ymedialabs-innovation/how-to-use-dataset-and-iterators-in-tensorflow-with-code-samples-3bb98b6b74ab
